@@ -1,5 +1,5 @@
 /* ============================================================
-   RISKRADAR — COMMAND BRIDGE TOPBAR
+   A.E.G.I.S. — COMMAND BRIDGE TOPBAR
    Precision 3-Zone Architecture (Zero-Overlap Protection)
    ============================================================ */
 
@@ -18,12 +18,12 @@
   border-bottom: 1px solid var(--border-shell);
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
 
-  /* Mathematical 3-Zone Layout Architecture */
+  /* Responsive 3-Zone Layout Architecture */
   padding: 0 20px;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-  column-gap: 40px;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 
   position: relative;
   overflow: hidden;
@@ -134,43 +134,21 @@
    ============================================================ */
 
 .rr-bridge-left {
-  grid-column: 1;
-  grid-row: 1;
-  justify-self: start;
   display: flex;
   align-items: center;
-  gap: 10px;
+  flex: 0 0 auto;
   min-width: 0;
   position: relative;
   z-index: 3;
-}
-
-/* Restrained Intelligence Signal Icon (28px) */
-.rr-bridge-brand-mark {
-  width: 28px;
-  height: 28px;
-  border-radius: 6px;
-  background: rgba(99, 215, 229, 0.07);
-  border: 1px solid rgba(99, 215, 229, 0.22);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #63D7E5;
-  flex-shrink: 0;
-  transition: border-color 200ms ease, background-color 200ms ease;
-}
-
-.rr-bridge-brand-mark:hover {
-  background: rgba(99, 215, 229, 0.11);
-  border-color: rgba(99, 215, 229, 0.35);
 }
 
 /* Horizontal Brand Lockup */
 .rr-bridge-brand-text {
   display: flex;
   align-items: baseline;
-  gap: 10px;
+  gap: 8px;
   min-width: 0;
+  white-space: nowrap;
   animation: rrBrandEntrance 450ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
@@ -186,15 +164,17 @@
   }
 }
 
-/* Primary Visible Brand */
+/* Primary Visible Brand — A.E.G.I.S. */
 .rr-bridge-brand-name {
   font-family: var(--font-sans);
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 700;
-  letter-spacing: -0.025em;
+  letter-spacing: 0.04em;
   color: #FFFFFF;
   white-space: nowrap;
   cursor: default;
+  line-height: 1;
+  flex-shrink: 0;
   transition: color 200ms ease;
 }
 
@@ -202,23 +182,26 @@
   color: #FFFFFF;
 }
 
-/* Brand Separator */
+/* Subtle Brand Separator: / */
 .rr-bridge-brand-separator {
-  color: #718296;
+  color: #556677;
   font-size: 13px;
   font-weight: 300;
   user-select: none;
   line-height: 1;
+  margin: 0 3px;
+  flex-shrink: 0;
 }
 
-/* Secondary Subtitle — Complete, crisp, luminous high-contrast */
+/* Complete Product Expansion — Autonomous Edge Gateway for Intelligent Sensing & Disaster Response */
 .rr-bridge-brand-sub {
   font-family: var(--font-sans);
   font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  color: #CAD6E2;
+  font-weight: 450;
+  letter-spacing: 0.015em;
+  color: #9AA6B2;
   white-space: nowrap;
+  line-height: 1;
 }
 
 /* ============================================================
@@ -226,9 +209,6 @@
    ============================================================ */
 
 .rr-bridge-center {
-  grid-column: 2;
-  grid-row: 1;
-  justify-self: center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -236,6 +216,7 @@
   white-space: nowrap;
   position: relative;
   z-index: 3;
+  margin: 0 10px;
   animation: rrCenterEntrance 450ms cubic-bezier(0.16, 1, 0.3, 1) 60ms both;
 }
 
@@ -294,15 +275,11 @@
    ============================================================ */
 
 .rr-bridge-right {
-  grid-column: 3;
-  grid-row: 1;
-  justify-self: end;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 11px;
-  min-width: 0;
-  max-width: 100%;
+  gap: 10px;
+  min-width: max-content;
   position: relative;
   z-index: 3;
   animation: rrRightEntrance 450ms cubic-bezier(0.16, 1, 0.3, 1) 120ms both;
@@ -432,19 +409,31 @@
    RESPONSIVE OVERLAP-PROTECTION BREAKPOINTS
    ============================================================ */
 
-/* 1366px Breakpoint: Slightly compress column gap */
-@media (max-width: 1366px) {
-  .rr-command-bridge {
-    column-gap: 32px;
-    padding: 0 16px;
+/* 1500px Breakpoint: Slightly compress typography to guarantee breathing room */
+@media (max-width: 1500px) {
+  .rr-bridge-brand-sub {
+    font-size: 11px;
   }
 }
 
-/* 1220px Breakpoint: Hide subtitle & swap simulated badge to compact mode */
+/* 1366px Breakpoint: Compress gap and scale subtitle smoothly */
+@media (max-width: 1366px) {
+  .rr-command-bridge {
+    gap: 12px;
+    padding: 0 16px;
+  }
+  .rr-bridge-brand-name {
+    font-size: 17px;
+  }
+  .rr-bridge-brand-sub {
+    font-size: 10.5px;
+  }
+}
+
+/* 1220px Breakpoint: Swap simulated badge to compact mode without hiding expansion */
 @media (max-width: 1220px) {
-  .rr-bridge-brand-sub,
-  .rr-bridge-brand-separator {
-    display: none;
+  .rr-bridge-brand-sub {
+    font-size: 10px;
   }
   .rr-sim-label-full {
     display: none;

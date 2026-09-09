@@ -13,7 +13,7 @@ const TOPOLOGY_STAGES: TopologyNode[] = [
   { name: 'SENSORS', sub: '1,201 Online', status: 'safe', statusLabel: 'ONLINE' },
   { name: 'GATEWAYS', sub: '38 Active', status: 'safe', statusLabel: 'ACTIVE' },
   { name: 'NETWORK', sub: 'LoRa / 4G / Sat', status: 'safe', statusLabel: 'HEALTHY' },
-  { name: 'RISKRADAR', sub: 'Command Core', status: 'cyan', statusLabel: 'CONNECTED' },
+  { name: 'A.E.G.I.S.', sub: 'Command Core', status: 'cyan', statusLabel: 'CONNECTED' },
 ];
 
 export const InfrastructurePanel: React.FC = () => {

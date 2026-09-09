@@ -18,44 +18,169 @@
 .rr-sidebar-top {
   height: 54px;
   min-height: 54px;
-  padding: 0 var(--space-16);
+  padding: 0 10px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   border-bottom: 1px solid var(--border-shell);
+  box-sizing: border-box;
 }
 
 .rr-sidebar-brand-mark {
-  width: 26px;
-  height: 26px;
-  border-radius: var(--radius-sm);
-  background: var(--surface-elevated);
-  border: 1px solid var(--border-inner);
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--signal-cyan);
   flex-shrink: 0;
+  position: relative;
+}
+
+.rr-sidebar-brand-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  display: block;
+  filter: drop-shadow(0 0 6px rgba(99, 215, 229, 0.28));
+  transition: filter 220ms ease, transform 220ms ease;
+}
+
+.rr-sidebar-brand-mark:hover .rr-sidebar-brand-img {
+  filter: drop-shadow(0 0 10px rgba(99, 215, 229, 0.5));
+  transform: scale(1.04);
 }
 
 .rr-sidebar-brand-text {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
 }
+
+/* ============================================================
+   A.E.G.I.S. WORDMARK — CONTINUOUS INTELLIGENT ENERGY SWEEP
+   ============================================================ */
 
 .rr-brand-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-primary);
-  line-height: 1.15;
-  letter-spacing: -0.01em;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  width: fit-content;
+
+  /* Premium Multi-Stop Spectral Gradient (Cyan -> Electric -> Blue -> Violet -> Cyan) */
+  background: linear-gradient(
+    105deg,
+    #38BDF8 0%,
+    #00F2FE 15%,
+    #F0FDFF 30%,
+    #38BDF8 45%,
+    #60A5FA 60%,
+    #818CF8 75%,
+    #38BDF8 90%,
+    #38BDF8 100%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  /* Dual Animation: Continuous Horizontal Energy Sweep + Extremely Slow Glow Breathing */
+  animation: aegisEnergySweep 4.8s linear infinite, aegisGlowBreathe 5.6s ease-in-out infinite;
+  transition: filter 300ms ease;
+  will-change: background-position, filter;
 }
 
+/* Intelligent Energy Sweep Keyframes (Left-to-Right highlight flow, seamless loop) */
+@keyframes aegisEnergySweep {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+/* Subtle Restrained Glow Breathing (Low -> Slightly brighter -> Low) */
+@keyframes aegisGlowBreathe {
+  0% {
+    filter: drop-shadow(0 0 3px rgba(56, 189, 248, 0.22));
+  }
+  50% {
+    filter: drop-shadow(0 0 6.5px rgba(0, 242, 254, 0.42));
+  }
+  100% {
+    filter: drop-shadow(0 0 3px rgba(56, 189, 248, 0.22));
+  }
+}
+
+/* ============================================================
+   NATIONAL RESILIENCE INTELLIGENCE — INSTITUTIONAL COLOR FLOW
+   ============================================================ */
+
 .rr-brand-subtitle {
-  font-size: 9px;
+  font-family: var(--font-sans);
+  font-size: 7.2px;
   font-weight: 600;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
+  letter-spacing: 0.025em;
+  white-space: nowrap;
+  overflow: visible;
+  text-transform: uppercase;
+  line-height: 1.2;
+  width: fit-content;
+
+  /* Restrained Secondary Institutional Signal (Muted Blue-Gray -> Soft Cyan -> Soft Blue -> Muted) */
+  background: linear-gradient(
+    90deg,
+    #8898A6 0%,
+    #6EA8B8 25%,
+    #72B4D0 45%,
+    #8EA0B8 70%,
+    #8898A6 100%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  /* Desynchronized 8.4s Flow (Subtle, Organic, 1/5 Intensity) */
+  animation: aegisSubtitleFlow 8.4s linear infinite;
+  transition: filter 300ms ease;
+  will-change: background-position;
+}
+
+/* Institutional Subtitle Flow Keyframes */
+@keyframes aegisSubtitleFlow {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+/* ============================================================
+   INTERACTIVE HOVER STATE (SUBTLE RESPONSIVENESS)
+   ============================================================ */
+
+.rr-sidebar-top:hover .rr-brand-title {
+  filter: drop-shadow(0 0 9px rgba(0, 242, 254, 0.65));
+  animation-duration: 3.6s, 4.2s;
+}
+
+.rr-sidebar-top:hover .rr-brand-subtitle {
+  filter: drop-shadow(0 0 3px rgba(94, 234, 212, 0.28));
+  animation-duration: 6.2s;
 }
 
 /* Navigation List */
@@ -190,4 +315,31 @@
 .rr-desk-subtitle {
   font-size: 9.5px;
   color: var(--text-muted);
+}
+
+/* ============================================================
+   ACCESSIBILITY & PREFERS-REDUCED-MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .rr-brand-title {
+    animation: none !important;
+    background: linear-gradient(90deg, #38BDF8 0%, #00F2FE 100%) !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    filter: drop-shadow(0 0 4px rgba(56, 189, 248, 0.3)) !important;
+  }
+
+  .rr-brand-subtitle {
+    animation: none !important;
+    background: none !important;
+    -webkit-text-fill-color: #8898A6 !important;
+    color: #8898A6 !important;
+    filter: none !important;
+  }
+
+  .rr-sidebar-brand-img {
+    transition: none !important;
+  }
 }

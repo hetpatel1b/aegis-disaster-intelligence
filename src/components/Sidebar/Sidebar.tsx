@@ -8,7 +8,6 @@ import {
   Network,
   BarChart3,
   Settings,
-  Shield,
 } from 'lucide-react';
 import './Sidebar.css';
 
@@ -34,15 +33,15 @@ export const Sidebar: React.FC<SidebarProps> = ({
   ];
 
   return (
-    <aside className="rr-sidebar" aria-label="RiskRadar Strategic Navigation">
+    <aside className="rr-sidebar" aria-label="A.E.G.I.S. Strategic Navigation">
       {/* Top Brand Identity */}
       <div className="rr-sidebar-top">
         <div className="rr-sidebar-brand-mark">
-          <Shield size={15} strokeWidth={2.2} />
+          <img src="/aegis-logo.png" alt="A.E.G.I.S. logo" className="rr-sidebar-brand-img" />
         </div>
         <div className="rr-sidebar-brand-text">
-          <span className="rr-brand-title">RiskRadar</span>
-          <span className="rr-brand-subtitle">NATIONAL RESILIENCE</span>
+          <span className="rr-brand-title">A.E.G.I.S.</span>
+          <span className="rr-brand-subtitle">NATIONAL RESILIENCE INTELLIGENCE</span>
         </div>
       </div>
 

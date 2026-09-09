@@ -1,0 +1,18 @@
+{
+  "short_name": "A.E.G.I.S.",
+  "name": "A.E.G.I.S. — Autonomous Edge Gateway for Intelligent Sensing & Disaster Response",
+  "description": "National resilience intelligence platform for real-time multi-hazard sensing, AI risk assessment, early warning and disaster response.",
+  "icons": [
+    {
+      "src": "/aegis-logo.png",
+      "type": "image/png",
+      "sizes": "512x512 192x192 128x128 64x64",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#070B10",
+  "theme_color": "#080D13",
+  "display": "standalone",
+  "orientation": "landscape"
+}

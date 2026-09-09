@@ -12,5 +12,5 @@ export const TOPOLOGY_STEPS = [
   { name: 'SENSORS', count: '1,201 Online', status: 'safe' as const },
   { name: 'GATEWAYS', count: '38 Active', status: 'safe' as const },
   { name: 'NETWORK', count: 'LoRa/4G/Sat', status: 'safe' as const },
-  { name: 'RISKRADAR', count: 'Command Core', status: 'ice' as const },
+  { name: 'A.E.G.I.S.', count: 'Command Core', status: 'ice' as const },
 ];
